@@ -1,3 +1,7 @@
+import 'package:clima/domain/weather_interactor.dart';
+import 'package:clima/domain/weather_use_case.dart';
+import 'package:clima/mock/weather_interactor_mock.dart';
+import 'package:clima/screens/components/weather_complex_component.dart';
 import 'package:flutter/material.dart';
 import 'package:clima/utilities/constants.dart';
 
@@ -8,7 +12,7 @@ class LocationScreen extends StatefulWidget {
 
 class _LocationScreenState extends State<LocationScreen> {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext b_context) {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -44,29 +48,9 @@ class _LocationScreenState extends State<LocationScreen> {
                   ),
                 ],
               ),
-              Padding(
-                padding: EdgeInsets.only(left: 15.0),
-                child: Row(
-                  children: <Widget>[
-                    Text(
-                      '32°',
-                      style: kTempTextStyle,
-                    ),
-                    Text(
-                      '☀️',
-                      style: kConditionTextStyle,
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: EdgeInsets.only(right: 15.0),
-                child: Text(
-                  "It's 🍦 time in San Francisco!",
-                  textAlign: TextAlign.right,
-                  style: kMessageTextStyle,
-                ),
-              ),
+              new WeatherComplexComponent(
+                weatherUseCase: WeatherUseCase(WeatherInteractorMock()),
+              )
             ],
           ),
         ),
