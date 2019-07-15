@@ -4,6 +4,7 @@ import 'package:clima/mock/location_interactor_mock.dart';
 import 'package:clima/mock/weather_interactor_mock.dart';
 import 'package:clima/screens/components/weather_complex_component.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'city_screen.dart';
 
@@ -49,6 +50,16 @@ class _LocationScreenState extends State<LocationScreen> {
                       Icons.near_me,
                       size: 50.0,
                     ),
+                  ),
+
+                  StreamBuilder<bool>(
+                    stream: widget.weatherUseCase.waitStream,
+                    builder: (context, snapshot) {
+                      if(snapshot.data == true)return SpinKitChasingDots(
+                        color: Colors.white,
+                      );
+                      else return Container();
+                    }
                   ),
                   FlatButton(
                     onPressed: () async {

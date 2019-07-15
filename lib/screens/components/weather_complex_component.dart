@@ -28,7 +28,7 @@ class _WeatherComplexComponentState extends State<WeatherComplexComponent> {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<WeatherInfo>(
-      stream: widget.weatherUseCase.weatherStream(),
+      stream: widget.weatherUseCase.weatherStream,
       builder: (context, snapshot) {
 //        if(snapshot.hasError){
 //          final snackBar = SnackBar(content: Text('Error occure while get weather!'));
@@ -40,12 +40,12 @@ class _WeatherComplexComponentState extends State<WeatherComplexComponent> {
             children: [
               if (snapshot.hasData)
                 new WeatherWidget(weatherInfo: snapshot.data)
-              else
-                Center(
-                  child: SpinKitChasingDots(
-                    color: Colors.white,
-                  ),
-                )
+//              else
+//                Center(
+//                  child: SpinKitChasingDots(
+//                    color: Colors.white,
+//                  ),
+//                )
             ],
           ),
         );
