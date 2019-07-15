@@ -11,18 +11,22 @@ class WeatherComplexComponent extends StatefulWidget {
     Key key,
   }) : super(key: key);
 
+
+  @override
+  StatefulElement createElement() {
+    return super.createElement();
+  }
+
   @override
   _WeatherComplexComponentState createState() =>
       _WeatherComplexComponentState();
 }
 
 class _WeatherComplexComponentState extends State<WeatherComplexComponent> {
-  WeatherInfo _weatherInfo;
   bool refreshing = true;
 
   @override
   Widget build(BuildContext context) {
-    widget.weatherUseCase.getWeatherInfo(LocationPos(1.0, 1.0));
     return StreamBuilder<WeatherInfo>(
       stream: widget.weatherUseCase.weatherStream(),
       builder: (context, snapshot) {

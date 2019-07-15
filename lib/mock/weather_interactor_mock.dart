@@ -5,7 +5,7 @@ class WeatherInteractorMock implements WeatherInteractor {
   @override
   Future<WeatherInfo> getWeatherInfo(LocationPos position) =>
       Future.delayed(Duration(seconds: 3))
-        .then((_) => throw ("test data"));//WeatherInfo(500, 34, "TempCity"));
+        .then((_) =>WeatherInfo(500, 34, "TempCity")); //throw ("test data"));//WeatherInfo(500, 34, "TempCity"));
 
   @override
   Future<WeatherInfo> getWeatherInfoForCity(CityInfo city) =>

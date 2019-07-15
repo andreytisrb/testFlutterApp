@@ -4,8 +4,9 @@ import 'package:clima/domain/entity.dart';
 import 'package:clima/domain/weather_interactor.dart';
 import 'package:http/http.dart' as http;
 
+const String apiKey = "e72ca729af228beabd5d20e3b7749713";
 class WeatherNetwork extends WeatherInteractor{
-  static const String url = "https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=b6907d289e10d714a6e88b30761fae22";
+  static const String url = "https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=$apiKey";
   //"https://samples.openweathermap.org/data/2.5/weather";
 
   Future<WeatherInfo> getWeatherData(String city) async{
@@ -18,6 +19,8 @@ class WeatherNetwork extends WeatherInteractor{
     );
 
   }
+
+  //e72ca729af228beabd5d20e3b7749713
 
   @override
   Future<WeatherInfo> getWeatherInfo(LocationPos position) async {
